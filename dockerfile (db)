@@ -1,0 +1,13 @@
+# Example Dockerfile for a PostgreSQL database model
+FROM postgres:latest
+
+# Set environment variables
+ENV POSTGRES_USER=myuser
+ENV POSTGRES_PASSWORD=mypassword
+ENV POSTGRES_DB=mydatabase
+
+# Copy initialization scripts
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Expose the port the PostgreSQL server runs on
+EXPOSE 5432
